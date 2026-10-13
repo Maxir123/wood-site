@@ -1,11 +1,11 @@
 {
-  "name": "A.D. Demosthenous Wood Constructions",
-  "short_name": "A.D. Demosthenous",
-  "description": "Expert wood constructions - pergolas, wooden houses, decks, and custom furniture",
+  "name": "Merab Engineering Services Limited",
+  "short_name": "Merab Engineering",
+  "description": "Fabrication, mechanical, civil, electrical and instrumentation, insulation, scaffolding and labour supply services across Nigeria.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FAF9F7",
-  "theme_color": "#6B5744",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2B1A6E",
   "orientation": "portrait-primary",
   "icons": [
     {

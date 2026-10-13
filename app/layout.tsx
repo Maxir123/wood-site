@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { company } from "@/data/company"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" })
@@ -14,18 +15,19 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: "#6B5744",
+  themeColor: "#2B1A6E",
 }
 
 export const metadata: Metadata = {
-  title: "A.D. Demosthenous - Expert Wood Constructions",
-  description:
-    "Crafting timeless woodwork. Specialists in custom wooden constructions including pergolas, wooden houses, decks, roofs, and furniture in Cyprus.",
-  keywords:
-    "wood constructions, wooden houses, pergolas, decks, custom furniture, Cyprus, carpentry, timber construction",
-  authors: [{ name: "A.D. Demosthenous" }],
-  creator: "A.D. Demosthenous",
-  publisher: "A.D. Demosthenous",
+  title: {
+    default: company.name,
+    template: `%s | ${company.name}`,
+  },
+  description: company.metaDescription,
+  keywords: [...company.keywords],
+  authors: [{ name: company.name }],
+  creator: company.name,
+  publisher: company.name,
   formatDetection: {
     email: false,
     address: false,
@@ -35,17 +37,17 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "A.D. Demosthenous",
+    title: "Merab Engineering",
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://addemosthenous.com",
-    title: "A.D. Demosthenous - Expert Wood Constructions",
-    description: "Crafting timeless woodwork. Specialists in custom wooden constructions.",
-    siteName: "A.D. Demosthenous",
+    locale: "en_NG",
+    url: company.website,
+    title: company.name,
+    description: company.metaDescription,
+    siteName: company.name,
+    images: [{ url: "/logo.png", width: 1200, height: 630, alt: company.name }],
   },
-    generator: 'v0.app'
 }
 
 export default function RootLayout({
