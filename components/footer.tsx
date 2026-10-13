@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Mail, Phone, MapPin, Facebook } from "lucide-react"
+import { Mail, Phone, MapPin } from "lucide-react"
 
 export function Footer() {
   return (
@@ -52,24 +52,6 @@ export function Footer() {
             </div>
           </div>
         </div>
-
-        <div className="mt-8 pt-8 border-t border-border">
-          <div className="flex flex-col items-center gap-4">
-            <h3 className="text-lg font-bold text-foreground">Follow Us</h3>
-            <div className="flex items-center gap-4">
-              <a
-                href="https://www.facebook.com/p/AD-Demosthenous-Wood-Constructions-100086751013732/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={24} />
-              </a>
-            </div>
-          </div>
-        </div>
-
         <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} A.D. Demosthenous. All rights reserved.</p>
           <p>Created by Andreas Palaikythritis</p>

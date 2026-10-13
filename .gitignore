@@ -25,3 +25,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# company PDF — keep outside version control
+*.pdf
+
+# macOS
+.DS_Store

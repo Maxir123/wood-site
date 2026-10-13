@@ -13,16 +13,23 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center gap-3">
             <Image 
               src="/logo.png" 
-              alt="A.D. Demosthenous Logo" 
-              width={40}
-              height={40}
-              className="h-10 w-10"
+              alt="Merab Engineering Services Limited" 
+              width={48}
+              height={48}
+              className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 object-contain"
               priority
             />
-            <span className="text-xl font-bold tracking-tight text-foreground">A.D. DEMOSTHENOUS</span>
+            <div className="flex flex-col justify-center leading-none select-none">
+              <span className="text-[14px] sm:text-[17px] font-black tracking-tight text-[#DC0210] uppercase">
+                MERAB ENGINEERING
+              </span>
+              <span className="text-[9.5px] sm:text-[11.5px] font-bold tracking-[0.14em] text-[#032771] uppercase mt-0.5">
+                SERVICES LIMITED
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
