@@ -17,7 +17,7 @@ export default function HomePage() {
       <section className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.jpg"
+            src="/backg.png"
             alt="Merab Engineering industrial operations"
             fill
             className="object-cover"
