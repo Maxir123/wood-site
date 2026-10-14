@@ -28,6 +28,7 @@ next-env.d.ts
 
 # company PDF — keep outside version control
 *.pdf
+public/extract/
 
 # macOS
 .DS_Store
