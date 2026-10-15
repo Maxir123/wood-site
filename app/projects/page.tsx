@@ -6,12 +6,12 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { projects } from "@/data/projects"
+import { projects, projectSectors } from "@/data/projects"
 
 export default function ProjectsPage() {
   const [selectedSector, setSelectedSector] = useState<string>("All")
 
-  const sectors = ["All", ...Array.from(new Set(projects.map((p) => p.sector)))]
+  const sectors = projectSectors
 
   const filtered =
     selectedSector === "All" ? projects : projects.filter((p) => p.sector === selectedSector)
