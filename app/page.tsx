@@ -203,13 +203,13 @@ export default function HomePage() {
                 </Link>
               </Button>
             </div>
-            <div className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden bg-muted flex items-center justify-center">
+            <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl border border-border group bg-muted">
               <Image
-                src="/logo.png"
-                alt="Merab Engineering Services Limited"
-                width={300}
-                height={300}
-                className="object-contain p-8"
+                src="/backg.png"
+                alt="Merab Engineering industrial plant operations"
+                fill
+                loading="lazy"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
