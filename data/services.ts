@@ -9,6 +9,8 @@ export type Service = {
   keyPoints: string[]
   icon: LucideIcon
   images?: string[]
+  relatedProjectSlugs?: string[]
+  hidden?: boolean
 }
 
 export const services: Service[] = [
@@ -29,9 +31,11 @@ export const services: Service[] = [
       "Sectors served: minerals & ore processing, sugar plants, cement plants, power plants",
     ],
     images: [
-      "/images/civil/civil-mast-rooftop-erection.png",
       "/images/scaffolding/scaffold-structure-01.png",
+      "/images/scaffolding/scaffold-structure-02.png",
+      "/images/civil/civil-roof-truss-construction.png",
     ],
+    relatedProjectSlugs: ["greenville-lng", "spdc-scaffolding"],
   },
   {
     slug: "mechanical",
@@ -51,8 +55,10 @@ export const services: Service[] = [
     images: [
       "/images/insulation/greenville-process-piping.png",
       "/images/insulation/greenville-valve-manifold.png",
+      "/images/insulation/greenville-pipe-bends.png",
       "/images/civil/civil-generator-installation.png",
     ],
+    relatedProjectSlugs: ["greenville-lng"],
   },
   {
     slug: "civil",
@@ -76,6 +82,7 @@ export const services: Service[] = [
       "/images/civil/civil-building-completed.png",
       "/images/civil/civil-perimeter-fence.png",
     ],
+    relatedProjectSlugs: ["nddc-road-works", "inec-civil-works", "nekede-poly-roads"],
   },
   {
     slug: "electrical-instrumentation",
@@ -96,8 +103,10 @@ export const services: Service[] = [
     images: [
       "/images/civil/civil-generator-electrical-works.png",
       "/images/insulation/greenville-level-gauge.png",
+      "/images/insulation/greenville-valves-manifold.png",
       "/images/civil/civil-generator-installation.png",
     ],
+    relatedProjectSlugs: ["greenville-lng", "nddc-road-works"],
   },
   {
     slug: "insulation",
@@ -115,9 +124,10 @@ export const services: Service[] = [
     images: [
       "/images/insulation/greenville-lng-tank-insulation.png",
       "/images/insulation/greenville-pipe-rack-run.png",
-      "/images/insulation/greenville-valves-manifold.png",
       "/images/insulation/greenville-elbow-insulation.png",
+      "/images/insulation/greenville-pipe-support.png",
     ],
+    relatedProjectSlugs: ["greenville-lng"],
   },
   {
     slug: "labour-scaffolding",
@@ -138,9 +148,10 @@ export const services: Service[] = [
     images: [
       "/images/labour/labour-ppe-workers-at-height.png",
       "/images/scaffolding/scaffold-vessel-and-pipes.png",
-      "/images/scaffolding/scaffold-structure-02.png",
+      "/images/scaffolding/scaffold-structure-01.png",
       "/images/labour/labour-safety-training.png",
     ],
+    relatedProjectSlugs: ["spdc-scaffolding", "chemie-tech-manpower"],
   },
   {
     slug: "telecom",
@@ -160,8 +171,14 @@ export const services: Service[] = [
       "/images/civil/civil-tower-and-stones.png",
       "/images/civil/civil-mast-rooftop-erection.png",
     ],
+    relatedProjectSlugs: [],
+    hidden: true,
   },
 ]
+
+export function getVisibleServices(): Service[] {
+  return services.filter((s) => !s.hidden)
+}
 
 export function getServiceBySlug(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug)

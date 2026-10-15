@@ -20,20 +20,15 @@ const clients = [
   "Chemie-Tech DMCC",
   "NDDC",
   "INEC",
-  "Bayelsa State Government",
-  "FCTA",
-  "Abuja Environmental Protection Board",
-  "Globacom",
-  "Motorola",
+  "Federal Polytechnic Nekede",
 ]
 
 const sectors = [
-  { name: "Oil & Gas / Refinery", description: "Process plants, refineries, flow stations, pipe racks, insulation, E&I, and manpower supply." },
+  { name: "Oil & Gas / Refinery", description: "Process plants, refineries, flow stations, pipe racks, insulation, E&I, and skilled manpower supply." },
   { name: "Civil Infrastructure", description: "Roads, culverts, drainage, boreholes, overhead tanks, and structural works." },
-  { name: "Power & Electrification", description: "Rural electrification, transformer supply and installation, HT/LT power lines." },
-  { name: "Public Sector", description: "Building works, civil projects, and services for federal and state government bodies." },
+  { name: "Power & Electrification", description: "Transformer supply and installation, electrical and instrumentation engineering." },
+  { name: "Public Sector", description: "Building works, civil projects, and facilities for federal and state government bodies." },
   { name: "Industrial / Manufacturing", description: "Structural fabrication, mechanical works, and labour supply for industrial facilities." },
-  { name: "Environmental", description: "Waste evacuation and environmental services." },
 ]
 
 export default function ClientsPage() {

@@ -1,15 +1,17 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { projects, projectSectors } from "@/data/projects"
+import { Badge } from "@/components/ui/badge"
+import { projects } from "@/data/projects"
 
 export default function ProjectsPage() {
   const [selectedSector, setSelectedSector] = useState<string>("All")
-  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
+
+  const sectors = ["All", ...Array.from(new Set(projects.map((p) => p.sector)))]
 
   const filtered =
     selectedSector === "All" ? projects : projects.filter((p) => p.sector === selectedSector)
@@ -20,13 +22,13 @@ export default function ProjectsPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Projects</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Selected projects across oil & gas, civil infrastructure, power, and public sector
+            Verified projects executed across Nigeria for oil & gas, industrial, and civil infrastructure clients.
           </p>
         </div>
 
         {/* Sector Filter */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {projectSectors.map((sector) => (
+          {sectors.map((sector) => (
             <Button
               key={sector}
               variant={selectedSector === sector ? "default" : "outline"}
@@ -39,58 +41,47 @@ export default function ProjectsPage() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.map((project) => (
-            <Card
-              key={project.id}
-              className="overflow-hidden group cursor-pointer border-border hover:shadow-xl hover:border-primary/40 transition-all flex flex-col"
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="relative h-48 w-full bg-muted overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <CardContent className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <p className="text-xs text-accent font-semibold uppercase tracking-wide mb-1">{project.sector}</p>
-                  <h3 className="text-xl font-bold text-card-foreground mb-1">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-2 font-medium">{project.client}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{project.summary}</p>
+            <Link key={project.slug} href={`/projects/${project.slug}`}>
+              <Card className="overflow-hidden group cursor-pointer border-border hover:shadow-xl hover:border-primary/40 transition-all flex flex-col h-full">
+                <div className="relative h-52 w-full bg-muted overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    loading="lazy"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <Badge variant="secondary" className="bg-primary/90 text-primary-foreground text-xs backdrop-blur-sm">
+                      {project.sector}
+                    </Badge>
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+                <CardContent className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl font-bold text-card-foreground mb-2 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <div className="text-sm text-muted-foreground mb-3 space-y-1">
+                      <p><span className="font-semibold text-foreground/80">Client:</span> {project.client}</p>
+                      <p><span className="font-semibold text-foreground/80">Location:</span> {project.location}</p>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                      {project.summary}
+                    </p>
+                  </div>
+                  <div className="pt-4 border-t border-border mt-4">
+                    <span className="text-sm font-semibold text-accent inline-flex items-center group-hover:translate-x-1 transition-transform">
+                      View Project Details &rarr;
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
-
-        {/* Project Modal */}
-        <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-          <DialogContent className="max-w-lg">
-            <DialogHeader>
-              <DialogTitle className="text-2xl">{selectedProject?.title}</DialogTitle>
-            </DialogHeader>
-            {selectedProject && (
-              <div className="space-y-4">
-                <div className="relative h-60 w-full rounded-md overflow-hidden bg-muted">
-                  <Image
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <p className="text-xs text-accent font-semibold uppercase tracking-wide">{selectedProject.sector}</p>
-                  <p className="text-sm font-medium text-foreground mt-1">Client: {selectedProject.client}</p>
-                  <p className="text-muted-foreground leading-relaxed mt-2">{selectedProject.summary}</p>
-                </div>
-              </div>
-            )}
-          </DialogContent>
-        </Dialog>
       </div>
     </div>
   )

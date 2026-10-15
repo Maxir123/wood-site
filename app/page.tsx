@@ -3,12 +3,19 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight } from "lucide-react"
-import { services } from "@/data/services"
+import { getVisibleServices } from "@/data/services"
 import { projects } from "@/data/projects"
 import { company } from "@/data/company"
+import { galleryItems } from "@/data/gallery"
+import { FieldGallery } from "@/components/field-gallery"
 
-const featuredServices = services.slice(0, 4)
+const featuredServices = getVisibleServices().slice(0, 4)
 const featuredProjects = projects.slice(0, 4)
+
+// 10 authentic field photos representing each core sector
+const fieldGalleryItems = galleryItems
+  .filter((item) => item.category !== "documents")
+  .slice(0, 10)
 
 export default function HomePage() {
   return (
@@ -17,14 +24,14 @@ export default function HomePage() {
       <section className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/home-bg.jpg"
-            alt="Merab Engineering industrial operations"
+            src="/images/insulation/greenville-pipe-rack-run.png"
+            alt="Process pipe rack insulation installation"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
           {/* Navy overlay — logo1.png works on this dark background */}
-          <div className="absolute inset-0 bg-primary/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -59,6 +66,15 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Trust Strip */}
+      <div className="border-y border-border bg-muted/40 py-4">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm md:text-base font-semibold tracking-wide text-foreground/80 uppercase">
+            Est. 2001 &middot; RC 429220 &middot; Port Harcourt &middot; Lagos &middot; Abuja
+          </p>
+        </div>
+      </div>
 
       {/* Services Section */}
       <section className="py-16 md:py-24 bg-background">
@@ -98,7 +114,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* Selected Projects */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -110,24 +126,32 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {featuredProjects.map((project) => (
-              <Card key={project.id} className="overflow-hidden border-border hover:shadow-xl hover:border-primary/40 transition-all flex flex-col group">
-                <div className="relative h-48 w-full bg-muted overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <CardContent className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <p className="text-xs text-accent font-semibold uppercase tracking-wide mb-1">{project.sector}</p>
-                    <h3 className="text-xl font-bold text-card-foreground mb-1">{project.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-2 font-medium">{project.client}</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{project.summary}</p>
+              <Link key={project.slug} href={`/projects/${project.slug}`}>
+                <Card className="overflow-hidden border-border hover:shadow-xl hover:border-primary/40 transition-all flex flex-col group h-full">
+                  <div className="relative h-52 w-full bg-muted overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      loading="lazy"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <p className="text-xs text-accent font-semibold uppercase tracking-wide mb-1">{project.sector}</p>
+                      <h3 className="text-xl font-bold text-card-foreground mb-1 group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-2 font-medium">Client: {project.client}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">{project.summary}</p>
+                    </div>
+                    <span className="inline-flex items-center text-sm font-medium text-accent mt-4 group-hover:translate-x-1 transition-transform">
+                      View Project Details &rarr;
+                    </span>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
 
@@ -142,8 +166,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About Preview */}
+      {/* Work in the Field (Masonry Gallery + Lightbox) */}
       <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Work in the Field</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-pretty">
+              Photographic documentation of our site installations, scaffolding structures, process piping, and civil infrastructure.
+            </p>
+          </div>
+
+          <FieldGallery items={fieldGalleryItems} />
+        </div>
+      </section>
+
+      {/* About Preview */}
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
