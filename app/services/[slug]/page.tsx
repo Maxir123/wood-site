@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -75,6 +76,29 @@ export default async function ServicePage({ params }: Props) {
                 ))}
               </ul>
             </div>
+
+            {/* Project Gallery */}
+            {service.images && service.images.length > 0 && (
+              <div className="mt-10">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Project Gallery</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {service.images.map((img, idx) => (
+                    <div
+                      key={idx}
+                      className="relative h-56 rounded-lg overflow-hidden bg-muted border border-border group"
+                    >
+                      <Image
+                        src={img}
+                        alt={`${service.title} photo ${idx + 1}`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Sidebar */}

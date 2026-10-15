@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2, Clock, HelpCircle, ArrowRight } from "lucide-react"
+import { CheckCircle2, Clock, HelpCircle, ArrowRight, FileText, ExternalLink } from "lucide-react"
 import { certifications, confirmedCerts } from "@/data/compliance"
 import Link from "next/link"
 import type { Metadata } from "next"
@@ -62,6 +62,23 @@ export default function CompliancePage() {
                       <p className="text-sm font-mono text-accent mb-1">{cert.reference}</p>
                     )}
                     <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                    {cert.id === "cac" && (
+                      <div className="mt-4 pt-3 border-t border-border flex items-center justify-between">
+                        <span className="text-xs text-muted-foreground flex items-center gap-1.5">
+                          <FileText className="w-3.5 h-3.5 text-accent" />
+                          Certificate on file
+                        </span>
+                        <a
+                          href="/images/documents/cac-certificate-of-incorporation.png"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-primary hover:underline font-medium inline-flex items-center gap-1"
+                        >
+                          View Certificate
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               )

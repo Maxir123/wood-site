@@ -20,7 +20,7 @@ export const projects: Project[] = [
     sector: "Oil & Gas / Refinery",
     client: "Greenville Oil & Gas",
     summary: "Pipe racks, insulation, and electrical & instrumentation works.",
-    image: "/placeholder.jpg",
+    image: "/images/insulation/greenville-lng-tank-insulation.png",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     sector: "Oil & Gas / Refinery",
     client: "SPDC",
     summary: "Scaffolding erection and fastening services.",
-    image: "/placeholder.jpg",
+    image: "/images/scaffolding/scaffold-vessel-and-pipes.png",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     sector: "Oil & Gas / Refinery",
     client: "Chemie-Tech DMCC (Dangote Refinery)",
     summary: "Skilled manpower supply for refinery operations.",
-    image: "/placeholder.jpg",
+    image: "/images/labour/labour-ppe-workers-at-height.png",
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     sector: "Civil Infrastructure",
     client: "NDDC",
     summary: "Road construction and transformer supply and installation.",
-    image: "/placeholder.jpg",
+    image: "/images/civil/civil-concrete-road-01.png",
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     sector: "Public Sector",
     client: "INEC",
     summary: "Civil and building construction works.",
-    image: "/placeholder.jpg",
+    image: "/images/civil/civil-perimeter-fence.png",
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     sector: "Civil Infrastructure",
     client: "Federal Polytechnic Nekede",
     summary: "Roads construction within the polytechnic campus.",
-    image: "/placeholder.jpg",
+    image: "/images/civil/civil-concrete-road-03.png",
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     sector: "Environmental",
     client: "Abuja Environmental Protection Board",
     summary: "Waste evacuation and environmental services.",
-    image: "/placeholder.jpg",
+    image: "/images/civil/civil-access-road-02.png",
   },
   {
     id: 8,
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     sector: "Public Sector",
     client: "FCTA",
     summary: "TODO: project description to be confirmed by client.",
-    image: "/placeholder.jpg",
+    image: "/images/civil/civil-building-completed.png",
   },
   {
     id: 9,
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     sector: "Power & Electrification",
     client: "Bayelsa State Government",
     summary: "Rural electrification works.",
-    image: "/placeholder.jpg",
+    image: "/images/civil/civil-generator-installation.png",
   },
 ]
 

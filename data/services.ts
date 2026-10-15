@@ -8,6 +8,7 @@ export type Service = {
   description: string
   keyPoints: string[]
   icon: LucideIcon
+  images?: string[]
 }
 
 export const services: Service[] = [
@@ -27,6 +28,10 @@ export const services: Service[] = [
       "Storage tanks and silo fabrication",
       "Sectors served: minerals & ore processing, sugar plants, cement plants, power plants",
     ],
+    images: [
+      "/images/civil/civil-mast-rooftop-erection.png",
+      "/images/scaffolding/scaffold-structure-01.png",
+    ],
   },
   {
     slug: "mechanical",
@@ -42,6 +47,11 @@ export const services: Service[] = [
       "Piping and plumbing installation",
       "Maintenance and repair of mechanical systems",
       "Budget and schedule management for mechanical packages",
+    ],
+    images: [
+      "/images/insulation/greenville-process-piping.png",
+      "/images/insulation/greenville-valve-manifold.png",
+      "/images/civil/civil-generator-installation.png",
     ],
   },
   {
@@ -60,6 +70,12 @@ export const services: Service[] = [
       "Boreholes, overhead tanks, and reticulation",
       "Project management",
     ],
+    images: [
+      "/images/civil/civil-concrete-road-01.png",
+      "/images/civil/civil-drainage-channel.png",
+      "/images/civil/civil-building-completed.png",
+      "/images/civil/civil-perimeter-fence.png",
+    ],
   },
   {
     slug: "electrical-instrumentation",
@@ -77,6 +93,11 @@ export const services: Service[] = [
       "Transformer supply and installation",
       "HT/LT power lines and rural electrification",
     ],
+    images: [
+      "/images/civil/civil-generator-electrical-works.png",
+      "/images/insulation/greenville-level-gauge.png",
+      "/images/civil/civil-generator-installation.png",
+    ],
   },
   {
     slug: "insulation",
@@ -90,6 +111,12 @@ export const services: Service[] = [
       "Heat and cold pipe insulation",
       "Vessel insulation",
       "Cathodic protection",
+    ],
+    images: [
+      "/images/insulation/greenville-lng-tank-insulation.png",
+      "/images/insulation/greenville-pipe-rack-run.png",
+      "/images/insulation/greenville-valves-manifold.png",
+      "/images/insulation/greenville-elbow-insulation.png",
     ],
   },
   {
@@ -108,6 +135,12 @@ export const services: Service[] = [
       "Retainership hospital / welfare support",
       "Human resources management",
     ],
+    images: [
+      "/images/labour/labour-ppe-workers-at-height.png",
+      "/images/scaffolding/scaffold-vessel-and-pipes.png",
+      "/images/scaffolding/scaffold-structure-02.png",
+      "/images/labour/labour-safety-training.png",
+    ],
   },
   {
     slug: "telecom",
@@ -122,6 +155,10 @@ export const services: Service[] = [
       "Site build (civil and electro-mechanical)",
       "Tower and antenna erection",
       "Integrated site maintenance",
+    ],
+    images: [
+      "/images/civil/civil-tower-and-stones.png",
+      "/images/civil/civil-mast-rooftop-erection.png",
     ],
   },
 ]

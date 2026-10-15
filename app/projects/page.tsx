@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
@@ -42,14 +43,24 @@ export default function ProjectsPage() {
           {filtered.map((project) => (
             <Card
               key={project.id}
-              className="overflow-hidden group cursor-pointer border-border hover:shadow-xl hover:border-primary/40 transition-all"
+              className="overflow-hidden group cursor-pointer border-border hover:shadow-xl hover:border-primary/40 transition-all flex flex-col"
               onClick={() => setSelectedProject(project)}
             >
-              <CardContent className="p-6">
-                <p className="text-xs text-accent font-semibold uppercase tracking-wide mb-1">{project.sector}</p>
-                <h3 className="text-xl font-bold text-card-foreground mb-1">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-2 font-medium">{project.client}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{project.summary}</p>
+              <div className="relative h-48 w-full bg-muted overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardContent className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <p className="text-xs text-accent font-semibold uppercase tracking-wide mb-1">{project.sector}</p>
+                  <h3 className="text-xl font-bold text-card-foreground mb-1">{project.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-2 font-medium">{project.client}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{project.summary}</p>
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -62,10 +73,20 @@ export default function ProjectsPage() {
               <DialogTitle className="text-2xl">{selectedProject?.title}</DialogTitle>
             </DialogHeader>
             {selectedProject && (
-              <div className="space-y-3">
-                <p className="text-xs text-accent font-semibold uppercase tracking-wide">{selectedProject.sector}</p>
-                <p className="text-sm font-medium text-foreground">Client: {selectedProject.client}</p>
-                <p className="text-muted-foreground leading-relaxed">{selectedProject.summary}</p>
+              <div className="space-y-4">
+                <div className="relative h-60 w-full rounded-md overflow-hidden bg-muted">
+                  <Image
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="text-xs text-accent font-semibold uppercase tracking-wide">{selectedProject.sector}</p>
+                  <p className="text-sm font-medium text-foreground mt-1">Client: {selectedProject.client}</p>
+                  <p className="text-muted-foreground leading-relaxed mt-2">{selectedProject.summary}</p>
+                </div>
               </div>
             )}
           </DialogContent>

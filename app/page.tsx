@@ -110,12 +110,22 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {featuredProjects.map((project) => (
-              <Card key={project.id} className="overflow-hidden border-border hover:shadow-xl transition-shadow">
-                <CardContent className="p-6">
-                  <p className="text-xs text-accent font-semibold uppercase tracking-wide mb-1">{project.sector}</p>
-                  <h3 className="text-xl font-bold text-card-foreground mb-1">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-2">{project.client}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{project.summary}</p>
+              <Card key={project.id} className="overflow-hidden border-border hover:shadow-xl hover:border-primary/40 transition-all flex flex-col group">
+                <div className="relative h-48 w-full bg-muted overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardContent className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <p className="text-xs text-accent font-semibold uppercase tracking-wide mb-1">{project.sector}</p>
+                    <h3 className="text-xl font-bold text-card-foreground mb-1">{project.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-2 font-medium">{project.client}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{project.summary}</p>
+                  </div>
                 </CardContent>
               </Card>
             ))}
