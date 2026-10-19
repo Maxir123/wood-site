@@ -30,8 +30,8 @@ export default function HomePage() {
             className="object-cover object-center"
             priority
           />
-          {/* Cool steel-slate industrial overlay — distinct color that provides contrast for red & blue logo text */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-200/95 via-[#D6E0EC]/90 to-slate-200/95" />
+          {/* Rich steel-slate industrial overlay — darker color tone while maintaining high contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-300/95 via-[#BACADB]/92 to-slate-300/95" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -45,10 +45,10 @@ export default function HomePage() {
               priority
             />
           </div>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 mb-6 text-balance tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-950 mb-6 text-balance tracking-tight leading-tight">
             {company.tagline}
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-slate-700 mb-8 max-w-2xl mx-auto text-pretty font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-slate-800 mb-8 max-w-2xl mx-auto text-pretty font-semibold">
             {company.name}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
@@ -58,7 +58,7 @@ export default function HomePage() {
                 <ArrowRight className="ml-2" size={20} />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto border-2 border-slate-300 bg-white text-slate-900 hover:bg-slate-100 hover:text-slate-950 shadow-sm font-semibold px-8 h-12 text-base">
+            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto border-2 border-slate-400 bg-white text-slate-900 hover:bg-slate-100 hover:text-slate-950 shadow-sm font-semibold px-8 h-12 text-base">
               <Link href="/services/fabrication" className="flex items-center justify-center">
                 Our Services
               </Link>
