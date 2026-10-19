@@ -30,22 +30,20 @@ export default function HomePage() {
             className="object-cover object-center"
             priority
           />
-          {/* Light industrial overlay — ensures maximum contrast for red & blue logo text */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-slate-100/95" />
+          {/* Cool steel-slate industrial overlay — distinct color that provides contrast for red & blue logo text */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-200/95 via-[#D6E0EC]/90 to-slate-200/95" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-8">
-            <div className="p-3 sm:p-4 rounded-2xl bg-white shadow-sm border border-slate-200/80 inline-flex items-center justify-center">
-              <Image
-                src="/logo1.png"
-                alt="Merab Engineering Services Limited"
-                width={320}
-                height={80}
-                className="h-14 sm:h-20 w-auto object-contain"
-                priority
-              />
-            </div>
+            <Image
+              src="/logo1.png"
+              alt="Merab Engineering Services Limited"
+              width={340}
+              height={85}
+              className="h-16 sm:h-20 w-auto object-contain"
+              priority
+            />
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 mb-6 text-balance tracking-tight leading-tight">
             {company.tagline}
