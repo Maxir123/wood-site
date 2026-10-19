@@ -21,7 +21,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[620px] md:min-h-[700px] flex items-center justify-center overflow-hidden py-16 md:py-24">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/insulation/greenville-pipe-rack-run.png"
@@ -30,36 +30,38 @@ export default function HomePage() {
             className="object-cover object-center"
             priority
           />
-          {/* Navy overlay — logo1.png works on this dark background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75" />
+          {/* Light industrial overlay — ensures maximum contrast for red & blue logo text */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-slate-100/95" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-8">
-            <Image
-              src="/logo1.png"
-              alt="Merab Engineering Services Limited"
-              width={120}
-              height={120}
-              className="h-24 w-auto object-contain"
-              priority
-            />
+            <div className="p-3 sm:p-4 rounded-2xl bg-white shadow-sm border border-slate-200/80 inline-flex items-center justify-center">
+              <Image
+                src="/logo1.png"
+                alt="Merab Engineering Services Limited"
+                width={320}
+                height={80}
+                className="h-14 sm:h-20 w-auto object-contain"
+                priority
+              />
+            </div>
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 text-balance">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 mb-6 text-balance tracking-tight leading-tight">
             {company.tagline}
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto text-pretty">
+          <p className="text-base sm:text-lg md:text-xl text-slate-700 mb-8 max-w-2xl mx-auto text-pretty font-medium">
             {company.name}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-              <Link href="/contact">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
+            <Button asChild size="lg" className="w-full sm:w-auto bg-accent text-white hover:bg-accent/90 shadow-md font-semibold px-8 h-12 text-base">
+              <Link href="/contact" className="flex items-center justify-center">
                 Get in Touch
                 <ArrowRight className="ml-2" size={20} />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-              <Link href="/services/fabrication">
+            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto border-2 border-slate-300 bg-white text-slate-900 hover:bg-slate-100 hover:text-slate-950 shadow-sm font-semibold px-8 h-12 text-base">
+              <Link href="/services/fabrication" className="flex items-center justify-center">
                 Our Services
               </Link>
             </Button>
